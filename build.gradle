@@ -1,0 +1,43 @@
+group = "com.saucedemo"
+version = "1.0-SNAPSHOT"
+
+repositories { // Repositorios para buscar dependencias
+    mavenCentral() // Repositorio central de Maven
+    mavenLocal()
+}
+
+buildscript { // Configuración del script de construcción
+    repositories { // Repositorios para dependencias de construcción
+        mavenCentral()
+        mavenLocal() // Repositorio local de Maven
+    }
+
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.4.34"
+    }
+
+}
+
+ext { // Propiedades extendidas
+    serenityVersion = '3.6.12' // Versión de Serenity
+    serenityCucumberVersion = '3.6.12' // Versión de Serenity para Cucumber
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+dependencies {
+    testImplementation "io.github.bonigarcia:webdrivermanager:5.5.3" // Gestor de controladores de navegador
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+    implementation 'net.serenity-bdd:serenity-gradle-plugin:2.4.34'
+    implementation "net.serenity-bdd:serenity-core:$serenityVersion" // Dependencia principal de Serenity
+    implementation "net.serenity-bdd:serenity-junit:$serenityVersion" // Integración con JUnit
+    implementation "net.serenity-bdd:serenity-screenplay:$serenityVersion" // Integración con Screenplay
+    implementation "net.serenity-bdd:serenity-cucumber:$serenityCucumberVersion" // Integración con Cucumber
+}
+
+test.finalizedBy(aggregate)
+
+gradle.startParameter.continueOnFailure = true

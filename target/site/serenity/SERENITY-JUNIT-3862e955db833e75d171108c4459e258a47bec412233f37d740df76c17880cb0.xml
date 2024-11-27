@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Add  Item" skipped="0" tests="2" time="16.6" timestamp="2024-11-27 05:20:07"><testcase name="User adds two item to cart"/><testcase name="User logout successfully"/></testsuite>

@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Add  Item","User adds two item to cart","SUCCESS","2024-11-27T17:20:07.7640971-05:00[America/Bogota]","0.0","10.56"
+"Add  Item","User logout successfully","SUCCESS","2024-11-27T17:20:18.6479638-05:00[America/Bogota]","0.0","6.04"
